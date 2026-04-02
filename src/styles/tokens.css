@@ -3,31 +3,31 @@
      COLORS
   ============================================ */
 
-  /* Primary — Plum */
-  --color-primary-50:  #faf4fa;
-  --color-primary-100: #f2e5f1;
-  --color-primary-200: #e2cbe1;
-  --color-primary-300: #c9a6c8;
-  --color-primary-400: #a87fa6;
-  --color-primary-500: #7f5b7d;
-  --color-primary-600: #5c3f5a;
-  --color-primary-700: #4a3148;
-  --color-primary-800: #3a2438;
-  --color-primary-900: #2b1a2a;
-  --color-primary-950: #180f17;
+  /* Primary — Green */
+  --color-primary-50:  #ecfbf3;
+  --color-primary-100: #d2f6e2;
+  --color-primary-200: #a4ecc2;
+  --color-primary-300: #69de9b;
+  --color-primary-400: #2ecf73;
+  --color-primary-500: #00bc5a;
+  --color-primary-600: #00a84f;
+  --color-primary-700: #009344;
+  --color-primary-800: #007d39;
+  --color-primary-900: #00682f;
+  --color-primary-950: #002d16;
 
-  /* Secondary — Sage Green */
-  --color-secondary-50:  #f4f7f5;
-  --color-secondary-100: #e3ebe6;
-  --color-secondary-200: #c7d7cd;
-  --color-secondary-300: #a5bfae;
-  --color-secondary-400: #7fa38b;
-  --color-secondary-500: #5f8871;
-  --color-secondary-600: #4a6e5a;
-  --color-secondary-700: #3b5748;
-  --color-secondary-800: #2e4338;
-  --color-secondary-900: #23332b;
-  --color-secondary-950: #141e19;
+  /* Secondary — Black */
+  --color-secondary-50:  #f5f5f5;
+  --color-secondary-100: #ebebeb;
+  --color-secondary-200: #d4d4d4;
+  --color-secondary-300: #b5b5b5;
+  --color-secondary-400: #8a8a8a;
+  --color-secondary-500: #636363;
+  --color-secondary-600: #3d3d3d;
+  --color-secondary-700: #2a2a2a;
+  --color-secondary-800: #1a1a1a;
+  --color-secondary-900: #0f0f0f;
+  --color-secondary-950: #050505;
 
   /* Success — Green */
   --color-success-50:  #f0fdf4;
