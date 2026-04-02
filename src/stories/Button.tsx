@@ -29,7 +29,7 @@ export const Button = ({
         'inline-block cursor-pointer rounded-full font-bold leading-none border-0 transition-colors',
         {
           // primary — plum fill
-          'bg-primary-700 text-white hover:bg-primary-700 active:bg-primary-800':
+          'bg-primary-900 text-white hover:bg-primary-700 active:bg-primary-800':
             primary,
           // secondary — black outline
           'bg-secondary-500 text-white  hover:bg-secondary-700 active:bg-secondary-700':
