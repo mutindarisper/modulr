@@ -1,0 +1,57 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as InputStories from './Input.stories';
+
+<Meta of={InputStories} />
+
+# Input
+
+A flexible input component that supports leading/trailing icons, helper text, and validation states.
+
+## Usage
+
+```tsx
+import { Input } from '@modulr-ui/core'
+
+<Input placeholder="Search..." />
+```
+
+## Default
+
+<Canvas of={InputStories.Default} />
+<Controls of={InputStories.Default} />
+
+## With Left Icon
+
+<Canvas of={InputStories.WithLeftIcon} />
+
+## With Right Icon
+
+<Canvas of={InputStories.WithRightIcon} />
+
+## With Helper Text
+
+<Canvas of={InputStories.WithHelperText} />
+
+## With Error Message
+
+<Canvas of={InputStories.WithErrorMessage} />
+
+## With Success Message
+
+<Canvas of={InputStories.WithSuccessMessage} />
+
+## Floating Label
+
+<Canvas of={InputStories.FloatingLabel} />
+
+## With Character Count
+
+<Canvas of={InputStories.WithCharacterCount} />
+
+## Loading
+
+<Canvas of={InputStories.Loading} />
+
+## Props
+
+<ArgTypes of={InputStories} />
