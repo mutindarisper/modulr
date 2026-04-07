@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 
 export interface ButtonProps {
@@ -9,6 +10,8 @@ export interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   /** Button contents */
   label: string;
+  /** Optional icon rendered before the label */
+  leadingIcon?: React.ReactNode;
   /** Optional click handler */
   onClick?: () => void;
 }
@@ -19,6 +22,7 @@ export const Button = ({
   size = 'medium',
   backgroundColor,
   label,
+  leadingIcon,
   ...props
 }: ButtonProps) => {
   return (
@@ -26,12 +30,12 @@ export const Button = ({
       type="button"
       style={{ backgroundColor }}
       className={clsx(
-        'inline-block cursor-pointer rounded-full font-bold leading-none border-0 transition-colors',
+        'flex gap-2 items-center cursor-pointer rounded-full font-bold leading-none border-0 transition-colors',
         {
-          // primary — plum fill
+          // primary — green fill
           'bg-primary-900 text-white hover:bg-primary-700 active:bg-primary-800':
             primary,
-          // secondary — black outline
+          // secondary — grey fill
           'bg-secondary-500 text-white  hover:bg-secondary-700 active:bg-secondary-700':
             !primary,
         },
@@ -43,6 +47,10 @@ export const Button = ({
       )}
       {...props}
     >
+      { leadingIcon &&
+       <span>{leadingIcon}</span>
+       }
+
       {label}
     </button>
   );
