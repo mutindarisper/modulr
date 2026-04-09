@@ -1,11 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Changelog from '../../CHANGELOG.md?raw';
 
 <Meta title="Changelog" />
 
-# @modulr-ui/core
-
-## 0.1.0
-
-### Minor Changes
-
-- `0c369c4` Component library with button, header and page components
+<Markdown>{Changelog}</Markdown>
