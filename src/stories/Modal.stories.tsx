@@ -43,6 +43,59 @@ export const WithButtons: Story = {
     }
 }
 
+export const Danger: Story = {
+    args: {
+        title: 'Delete Account',
+        bodyText: 'Are you sure you want to delete your account? This action cannot be undone.',
+        showCloseIcon: true,
+        cancelButton: true,
+        confirmButton: true,
+        cancelButtonText: 'Keep Account',
+        confirmButtonText: 'Yes, Delete it',
+        variant: 'danger',
+    }
+}
+
+export const Warning: Story = {
+    args: {
+        title: 'Unsaved Changes',
+        bodyText: 'You have unsaved changes. Are you sure you want to leave?',
+        showCloseIcon: true,
+        cancelButton: true,
+        confirmButton: true,
+        cancelButtonText: 'Stay',
+        confirmButtonText: 'Leave',
+        variant: 'warning',
+        icon: '⚠️',
+    }
+}
+
+export const Info: Story = {
+    args: {
+        title: 'New Update Available',
+        bodyText: 'A new version of the app is available. Update now to get the latest features.',
+        showCloseIcon: true,
+        confirmButton: true,
+        confirmButtonText: 'Update Now',
+        variant: 'info',
+        icon: 'ℹ️',
+    }
+}
+
+export const LoadingConfirm: Story = {
+    args: {
+        title: 'Delete Account',
+        bodyText: 'Are you sure you want to delete your account? This action cannot be undone.',
+        showCloseIcon: true,
+        cancelButton: true,
+        confirmButton: true,
+        cancelButtonText: 'Keep Account',
+        confirmButtonText: 'Deleting...',
+        variant: 'danger',
+        confirmLoading: true,
+    }
+}
+
 export const Animated: Story = {
     render: (args) => {
         const [isOpen, setIsOpen] = useState(false);

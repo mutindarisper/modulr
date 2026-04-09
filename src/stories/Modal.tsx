@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import close_icon from "../static/close.svg";
 
+export type ModalVariant = "default" | "danger" | "warning" | "info";
+
 export interface ModalProps {
     isOpen?: boolean;
+    variant?: ModalVariant;
+    icon?: React.ReactNode;
     title: string;
     bodyText: string;
     showCloseIcon?: boolean;
@@ -12,6 +16,7 @@ export interface ModalProps {
     cancelButtonText?: string;
     confirmButton?: boolean;
     confirmButtonText?: string;
+    confirmLoading?: boolean;
     onClose?: () => void;
     onConfirm?: () => void;
     onCancel?: () => void;
@@ -27,8 +32,24 @@ const FOCUSABLE = [
     '[tabindex]:not([tabindex="-1"])',
 ].join(',');
 
+const variantStyles: Record<ModalVariant, { header: string; title: string }> = {
+    default: { header: "", title: "text-neutral-900" },
+    danger:  { header: "bg-error-50 -mx-6 -mt-6 px-6 pt-6 pb-4 rounded-t-lg", title: "text-error-700" },
+    warning: { header: "bg-warning-50 -mx-6 -mt-6 px-6 pt-6 pb-4 rounded-t-lg", title: "text-warning-700" },
+    info:    { header: "bg-primary-50 -mx-6 -mt-6 px-6 pt-6 pb-4 rounded-t-lg", title: "text-primary-700" },
+};
+
+const Spinner = () => (
+    <svg className="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+    </svg>
+);
+
 export const Modal = ({
     isOpen = true,
+    variant = "default",
+    icon,
     title,
     bodyText,
     showCloseIcon,
@@ -36,12 +57,14 @@ export const Modal = ({
     cancelButtonText,
     confirmButton,
     confirmButtonText,
+    confirmLoading = false,
     onClose,
     onConfirm,
     onCancel,
     className,
 }: ModalProps) => {
     const modalRef = useRef<HTMLDivElement>(null);
+    const styles = variantStyles[variant];
 
     // Close on Escape
     useEffect(() => {
@@ -61,7 +84,6 @@ export const Modal = ({
             modalRef.current.querySelectorAll<HTMLElement>(FOCUSABLE)
         );
 
-        // Auto-focus: confirm button first, then cancel, then first focusable
         const autoFocusTarget =
             focusable.find(el => el.getAttribute('data-autofocus') === 'true') ??
             focusable[0];
@@ -76,15 +98,9 @@ export const Modal = ({
             const last = focusableNow[focusableNow.length - 1];
 
             if (e.shiftKey) {
-                if (document.activeElement === first) {
-                    e.preventDefault();
-                    last?.focus();
-                }
+                if (document.activeElement === first) { e.preventDefault(); last?.focus(); }
             } else {
-                if (document.activeElement === last) {
-                    e.preventDefault();
-                    first?.focus();
-                }
+                if (document.activeElement === last) { e.preventDefault(); first?.focus(); }
             }
         };
 
@@ -125,9 +141,15 @@ export const Modal = ({
                             className
                         )}
                     >
-                        <div className="flex flex-col gap-2">
+                        {/* Header */}
+                        <div className={clsx("flex flex-col gap-2", styles.header)}>
                             <div className="flex justify-between items-start">
-                                <h2 id="modal-title" className="font-bold text-4xl">{title}</h2>
+                                <div className="flex items-center gap-3">
+                                    {icon && <span className="text-2xl">{icon}</span>}
+                                    <h2 id="modal-title" className={clsx("font-bold text-4xl", styles.title)}>
+                                        {title}
+                                    </h2>
+                                </div>
                                 {showCloseIcon && (
                                     <motion.button
                                         type="button"
@@ -141,10 +163,10 @@ export const Modal = ({
                                     </motion.button>
                                 )}
                             </div>
-
                             <p id="modal-body" className="text-sm text-neutral-600">{bodyText}</p>
                         </div>
 
+                        {/* Actions */}
                         {(cancelButton || confirmButton) && (
                             <div className="flex justify-between">
                                 {cancelButton && (
@@ -162,11 +184,13 @@ export const Modal = ({
                                     <motion.button
                                         type="button"
                                         data-autofocus="true"
-                                        whileHover={{ scale: 1.03 }}
-                                        whileTap={{ scale: 0.97 }}
-                                        className="bg-error-700 font-semibold text-neutral-50 py-2 px-4 rounded-md cursor-pointer hover:bg-error-800 transition-colors focus-visible:outline-black"
+                                        disabled={confirmLoading}
+                                        whileHover={confirmLoading ? {} : { scale: 1.03 }}
+                                        whileTap={confirmLoading ? {} : { scale: 0.97 }}
+                                        className="flex items-center gap-2 bg-error-700 font-semibold text-neutral-50 py-2 px-4 rounded-md cursor-pointer hover:bg-error-800 transition-colors focus-visible:outline-black disabled:opacity-60 disabled:cursor-not-allowed"
                                         onClick={onConfirm}
                                     >
+                                        {confirmLoading && <Spinner />}
                                         {confirmButtonText || "Confirm"}
                                     </motion.button>
                                 )}
