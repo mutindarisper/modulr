@@ -1,5 +1,11 @@
 # @modulr-ui/core
 
+## 0.3.0
+
+### Minor Changes
+
+- 5836f91: [Modal] Add a `Modal` component with keyboard acessibility, animations, variants (danger, info, warning, loading)
+
 ## 0.2.0
 
 ### Minor Changes

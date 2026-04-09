@@ -1,6 +1,6 @@
 {
   "name": "@modulr-ui/core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -37,6 +37,7 @@
     "@changesets/cli": "^2.30.0",
     "@tailwindcss/vite": "^4.2.2",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
