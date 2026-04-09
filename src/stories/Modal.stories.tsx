@@ -25,7 +25,7 @@ export const Default: Story = {
     args: {
         title: 'Delete Account',
         bodyText: 'Are you sure you want to delete your account? This action cannot be undone.',
-        closeIcon: true,
+        showCloseIcon: true,
     }
 
 }
@@ -34,7 +34,7 @@ export const WithButtons: Story = {
     args: {
         title: 'Delete Account',
         bodyText: 'Are you sure you want to delete your account? This action cannot be undone.',
-        closeIcon: true,
+        showCloseIcon: true,
         cancelButton: true,
         confirmButton: true,
         cancelButtonText: 'Keep Account',
