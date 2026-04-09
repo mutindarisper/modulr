@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as ModalStories from './Modal.stories';
+
+<Meta of={ModalStories} />
+
+# Modal
+
+An accessible modal dialog with animated enter/exit, backdrop, focus trap, and support for danger, warning, and info variants.
+
+## Usage
+
+```tsx
+import { Modal } from '@modulr-ui/core'
+
+const [isOpen, setIsOpen] = useState(false)
+
+<Modal
+  isOpen={isOpen}
+  title="Delete Account"
+  bodyText="Are you sure? This action cannot be undone."
+  showCloseIcon
+  cancelButton
+  confirmButton
+  cancelButtonText="Keep Account"
+  confirmButtonText="Yes, Delete it"
+  variant="danger"
+  onClose={() => setIsOpen(false)}
+  onCancel={() => setIsOpen(false)}
+  onConfirm={() => setIsOpen(false)}
+/>
+```
+
+
+
+## Props
+
+<ArgTypes of={ModalStories} />
