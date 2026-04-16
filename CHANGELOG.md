@@ -1,5 +1,11 @@
 # @modulr-ui/core
 
+## 0.4.0
+
+### Minor Changes
+
+- 4e7eed1: [NavItem] Add a NavItem component for navigation bar
+
 ## 0.3.0
 
 ### Minor Changes
