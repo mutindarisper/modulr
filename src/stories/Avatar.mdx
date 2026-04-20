@@ -1,0 +1,33 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as AvatarStories from './Avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+A circular avatar that displays a profile picture or fallback initials, with an optional active ring indicator.
+
+## Usage
+
+```tsx
+import { Avatar } from '@modulr-ui/core'
+
+<Avatar initials="RM" />
+```
+
+## Default
+
+<Canvas of={AvatarStories.Default} />
+<Controls of={AvatarStories.Default} />
+
+## Active
+
+<Canvas of={AvatarStories.Active} />
+
+## With Profile Picture
+
+<Canvas of={AvatarStories.withProfilePicture} />
+
+## Props
+
+<ArgTypes of={AvatarStories} />
