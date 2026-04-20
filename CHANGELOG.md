@@ -1,5 +1,11 @@
 # @modulr-ui/core
 
+## 0.5.0
+
+### Minor Changes
+
+- 17c1796: [Avatar] A circular avatar that displays a profile picture or fallback initials, with an optional active ring indicator
+
 ## 0.4.0
 
 ### Minor Changes
