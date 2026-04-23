@@ -1,0 +1,73 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as ToastStories from './Toast.stories';
+
+<Meta of={ToastStories} />
+
+# Toast
+
+A lightweight notification system with support for success, error, warning, and info variants. Toasts auto-dismiss after a configurable duration, can be stacked, and animate in/out via framer-motion. Rendered in a portal so they always float above your UI.
+
+## Usage
+
+Wrap your app with `ToastProvider` once, then call `useToast()` anywhere inside to trigger toasts.
+
+```tsx
+import { ToastProvider, useToast } from '@modulr-ui/core'
+
+// 1. Wrap your app
+const App = () => (
+  <ToastProvider position="top-right">
+    <YourApp />
+  </ToastProvider>
+)
+
+// 2. Trigger toasts from any child component
+const SaveButton = () => {
+  const { addToast } = useToast()
+
+  const handleSave = async () => {
+    try {
+      await save()
+      addToast({ message: 'Changes saved successfully.', variant: 'success', duration: 4000 })
+    } catch {
+      addToast({ message: 'Something went wrong. Please try again.', variant: 'error', duration: 4000 })
+    }
+  }
+
+  return <button onClick={handleSave}>Save</button>
+}
+```
+
+## Positions
+
+### Top Right (default)
+
+<Canvas of={ToastStories.TopRight} />
+
+### Top Center
+
+<Canvas of={ToastStories.TopCenter} />
+
+### Bottom Right
+
+<Canvas of={ToastStories.BottomRight} />
+
+## All Variants
+
+Fires all four variants at once — success, error, warning, and info.
+
+<Canvas of={ToastStories.AllVariants} />
+
+## Persistent
+
+Pass `duration: 0` to disable auto-dismiss. The toast stays until the user closes it manually.
+
+```tsx
+addToast({ message: 'Action required.', variant: 'warning', duration: 0 })
+```
+
+<Canvas of={ToastStories.Persistent} />
+
+## Props
+
+<ArgTypes of={ToastStories} />
