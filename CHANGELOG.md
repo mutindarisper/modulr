@@ -1,5 +1,11 @@
 # @modulr-ui/core
 
+## 0.6.0
+
+### Minor Changes
+
+- e766f17: [Toast] A lightweight notification system with support for success, error, warning, and info variants.
+
 ## 0.5.0
 
 ### Minor Changes
