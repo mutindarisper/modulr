@@ -1,5 +1,11 @@
 # @modulr-ui/core
 
+## 0.7.0
+
+### Minor Changes
+
+- 26bbab6: A date picker component that supports a single date and a date range with a start and end date
+
 ## 0.6.0
 
 ### Minor Changes
