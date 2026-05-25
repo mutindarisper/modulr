@@ -1,0 +1,42 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as DatePickerStories from './DatePicker.stories';
+
+<Meta of={DatePickerStories} />
+
+# DatePicker
+
+A calendar date picker with support for single date selection and date range selection. Includes live range preview on hover and an intuitive year navigator.
+
+## Usage
+
+### Single date
+
+```tsx
+import { DatePicker } from '@modulr-ui/core'
+
+<DatePicker mode="single" onChange={(date) => console.log(date)} />
+```
+
+### Date range
+
+```tsx
+import { DatePicker } from '@modulr-ui/core'
+
+<DatePicker
+  mode="range"
+  onRangeChange={({ start, end }) => console.log(start, end)}
+/>
+```
+
+## Year navigation
+
+Click the **Month Year** header to open the year picker. Use the arrows to page through years in groups of 12, then click a year to jump straight to it.
+
+## Variants
+
+<Canvas of={DatePickerStories.Single} />
+<Canvas of={DatePickerStories.Range} />
+
+## Props
+
+<ArgTypes of={DatePickerStories} />
