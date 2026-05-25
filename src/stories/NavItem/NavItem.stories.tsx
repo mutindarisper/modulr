@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { NavItem } from './NavItem';
-import git_icon from "./assets/github.svg";
+import git_icon from "../assets/github.svg";
 
 
 const meta = {

@@ -182,11 +182,11 @@ export const ToastProvider = ({ children, position = 'top-right' }: ToastProvide
                 document.body
             )}
         </ToastContext.Provider>
-    )
+    ) 
 }
 
 export const useToast = (): ToastContextValue => {
     const ctx = useContext(ToastContext)
-    if (!ctx) throw new Error('useToast must be used within a ToastProvider')
+    if (!ctx) throw new Error('useToast must be used within a ToastContext')
     return ctx
 }

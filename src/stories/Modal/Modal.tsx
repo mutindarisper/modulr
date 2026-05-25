@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
-import close_icon from "../static/close.svg";
+import close_icon from "../../static/close.svg";
 
 export type ModalVariant = "default" | "danger" | "warning" | "info";
 
