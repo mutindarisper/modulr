@@ -1,5 +1,11 @@
 # @modulr-ui/core
 
+## 0.8.0
+
+### Minor Changes
+
+- c961d39: A select component that supports single selection, multi-select with checkboxes, real-time search filtering, and collapsible nested option groups
+
 ## 0.7.1
 
 ### Patch Changes
