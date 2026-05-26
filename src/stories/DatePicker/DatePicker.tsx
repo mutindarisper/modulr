@@ -215,10 +215,10 @@ export const DatePicker = ({
               <div
                 className={cn(
                   'flex items-center justify-center h-8 w-8 rounded-lg text-sm font-medium transition-colors',
-                  (isSel || isStart || isEnd) && 'bg-primary-900 text-white rounded-full',
-                  isToday && !isSel && !isStart && !isEnd && 'bg-primary-300 text-primary-950 font-semibold rounded-full',
+                  (isSel || isStart || isEnd) && 'bg-primary-900 text-white rounded-lg',
+                  isToday && !isSel && !isStart && !isEnd && 'bg-primary-300 text-primary-950 font-semibold rounded-lg',
                   inRange && !isToday && !isStart && !isEnd && 'bg-primary-100 text-primary-900',
-                  isToday && inRange && 'bg-primary-300 text-primary-950 rounded-full',
+                  isToday && inRange && 'bg-primary-300 text-primary-950 rounded-lg',
                   !isSel && !isStart && !isEnd && !isToday && !inRange && 'hover:bg-primary-50 text-neutral-700',
                   inRange && !isStart && !isEnd && 'hover:bg-primary-200',
                 )}
