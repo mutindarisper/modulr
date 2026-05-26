@@ -1,5 +1,11 @@
 # @modulr-ui/core
 
+## 0.7.1
+
+### Patch Changes
+
+- 583363c: change styling for start and end dates from rounded-full to rounded-lg
+
 ## 0.7.0
 
 ### Minor Changes
