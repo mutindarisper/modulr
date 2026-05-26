@@ -1,0 +1,106 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select
+
+A flexible dropdown select component with a light green theme. Supports single selection, multi-select with checkboxes, real-time search filtering, and collapsible nested option groups. All variants are composable — searchable and multiple can be combined freely.
+
+## Import
+
+```tsx
+import { Select } from '@modulr-ui/core';
+import '@modulr-ui/core/styles';
+```
+
+## Basic usage
+
+```tsx
+<Select
+  options={[
+    { label: 'Apple', value: 'apple' },
+    { label: 'Banana', value: 'banana' },
+    { label: 'Cherry', value: 'cherry' },
+  ]}
+  label="Select a fruit"
+  onChange={(value) => console.log(value)}
+/>
+```
+
+## Default
+
+Single-select with a placeholder label. Clicking an option closes the dropdown and updates the trigger label.
+
+<Canvas of={SelectStories.Default} />
+<Controls of={SelectStories.Default} />
+
+## With default value
+
+Pass `value` to pre-select an option on mount.
+
+<Canvas of={SelectStories.WithDefaultValue} />
+
+## With leading icon
+
+Pass any React node to `leadingIcon` to render an icon inside the trigger and beside each option.
+
+<Canvas of={SelectStories.WithLeadingIcon} />
+
+## Multi-select with checkboxes
+
+Set `multiple` to allow selecting several options at once. Each option renders a green checkbox. The trigger shows a count badge when items are selected. The dropdown footer has **Clear all** and **Apply** buttons.
+
+<Canvas of={SelectStories.WithCheckboxes} />
+
+Pass an array to `value` to pre-select multiple options.
+
+<Canvas of={SelectStories.WithCheckboxesPreselected} />
+
+## Searchable
+
+Set `searchable` to add a search field at the top of the dropdown. The input auto-focuses on open and filters options by label in real time. A clear button appears when the query is non-empty.
+
+<Canvas of={SelectStories.Searchable} />
+
+## Searchable multi-select
+
+`searchable` and `multiple` can be used together for a filterable multi-select.
+
+<Canvas of={SelectStories.SearchableMulti} />
+
+## Grouped options
+
+Options with a `children` array render as collapsible group headers. Clicking the header expands or collapses it; child options are indented beneath it. Group headers are not selectable.
+
+```tsx
+const options = [
+  {
+    label: 'Fruits',
+    value: 'fruits-group',
+    children: [
+      { label: 'Apple', value: 'apple' },
+      { label: 'Banana', value: 'banana' },
+    ],
+  },
+  {
+    label: 'Vegetables',
+    value: 'vegetables-group',
+    children: [
+      { label: 'Carrot', value: 'carrot' },
+    ],
+  },
+];
+```
+
+<Canvas of={SelectStories.WithGroupedOptions} />
+
+## Searchable grouped
+
+Search works across grouped options — the group header stays visible if any of its children match the query.
+
+<Canvas of={SelectStories.SearchableGrouped} />
+
+## Props
+
+<ArgTypes of={SelectStories} />
